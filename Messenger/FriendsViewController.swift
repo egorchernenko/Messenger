@@ -10,7 +10,10 @@ import UIKit
 
 class FriendsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    var messages: [Message]?
+    
     private let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Recent"
@@ -18,15 +21,21 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView?.backgroundColor = .white
         collectionView?.alwaysBounceVertical = true
     
-        collectionView?.register(FriendCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: cellId)
+        
+        setupData()
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return messages?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MessageCell
+        
+        if let message = messages?[indexPath.row]{
+            cell.message = message
+        }
         
         return cell
     }

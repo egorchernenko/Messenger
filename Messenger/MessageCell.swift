@@ -9,7 +9,27 @@
 import Foundation
 import UIKit
 
-class FriendCell: BaseCell{
+class MessageCell: BaseCell{
+    
+    var message: Message? {
+        didSet{
+            nameLabel.text = message?.friend?.name
+            messageLabel.text = message?.text
+            
+            if let profileImageName = message?.friend?.profileImageName{
+                profileImageView.image = UIImage(named: profileImageName)
+                hasReadImageView.image = UIImage(named: profileImageName)
+            }
+            
+            if let date = message?.date{
+                let dateFromater = DateFormatter()
+                dateFromater.dateFormat = "h:mm a"
+                
+                timeLabel.text = dateFromater.string(from: date as Date)
+            }
+            
+        }
+    }
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -80,7 +100,7 @@ class FriendCell: BaseCell{
         let containerView = UIView()
         addSubview(containerView)
         
-        containerView.anchor(self.topAnchor, left: profileImageView.rightAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        containerView.anchor(self.topAnchor, left: profileImageView.rightAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 8, leftConstant: 8, bottomConstant: 8, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         containerView.addSubview(nameLabel)
         containerView.addSubview(messageLabel)
@@ -89,7 +109,7 @@ class FriendCell: BaseCell{
         
         nameLabel.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-        messageLabel.anchor(nameLabel.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: hasReadImageView.leftAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: 0)
+        messageLabel.anchor(nameLabel.bottomAnchor, left: containerView.leftAnchor, bottom: nil, right: hasReadImageView.leftAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 28, widthConstant: 0, heightConstant: 0)
         
         timeLabel.anchor(containerView.topAnchor, left: nil, bottom: nil, right: containerView.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 100, heightConstant: 0)
         
