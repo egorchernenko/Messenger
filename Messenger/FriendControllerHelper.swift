@@ -43,24 +43,21 @@ extension FriendsViewController{
         let container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         
         if let context = container?.viewContext{
+            
             let mark = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             mark.name = "Mark Zuckerberg"
             mark.profileImageName = "zuckerberg"
             
-            let messageMark = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            messageMark.friend = mark
-            messageMark.text = "Hello, my name is Mark nice to meet you....."
-            messageMark.date = NSDate()
+            createMessageWith(text: "Hello, my name is Mark nice to meet you.....", friend: mark, context: context)
             
             let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             steve.name = "Steven Jobs"
             steve.profileImageName = "stevejobs"
             
-            let messageSteve = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
-            messageSteve.friend = steve
-            messageSteve.text = "Hello, my name is Steve nice to meet you. I hope you enjoy IOS enviroment"
-            messageSteve.date = NSDate()
-            
+            createMessageWith(text: "Good morning...", friend: steve, context: context)
+            createMessageWith(text: "How are you?", friend: steve, context: context)
+            createMessageWith(text: "Are you interested in buying an Apple divice?", friend: steve, context: context)
+                        
             do{
                 try context.save()
             } catch {
@@ -71,16 +68,52 @@ extension FriendsViewController{
         loadData()
     }
     
+    private func createMessageWith(text: String, friend: Friend, context: NSManagedObjectContext){
+        let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+        message.friend = friend
+        message.text = text
+        message.date = NSDate()
+    }
+    
     func loadData(){
         let container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         
+        if let friends = fetchFriend(){
+            
+            messages = [Message]()
+            
+            for friend in friends{
+                
+                if let context = container?.viewContext{
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
+                    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                    fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
+                    fetchRequest.fetchLimit = 1
+                    do{
+                        if let fetchedMessages = try context.fetch(fetchRequest) as? [Message]{
+                            messages?.append(contentsOf: fetchedMessages)
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+            messages = messages?.sorted{$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970}
+        }
+    }
+    
+    private func fetchFriend() -> [Friend]?{
+        let container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+        
         if let context = container?.viewContext{
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Message")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Friend")
+            
             do{
-                messages = try context.fetch(fetchRequest) as? [Message]
+                return try context.fetch(fetchRequest) as? [Friend]
             } catch {
                 print(error.localizedDescription)
             }
         }
+        return nil
     }
 }

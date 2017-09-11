@@ -59,6 +59,7 @@ class MessageCell: BaseCell{
         label.text = "Here you can see your friend's messageasdfsfasfsafsfsfasdfsdfsdfsad..."
         label.textColor = UIColor.darkGray
         label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 2
         return label
     }()
     

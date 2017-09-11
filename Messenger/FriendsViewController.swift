@@ -33,13 +33,20 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MessageCell
         
-        if let message = messages?[indexPath.row]{
+        if let message = messages?[indexPath.item]{
             cell.message = message
         }
         
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let controller = ChatLogController(collectionViewLayout: layout)
+        controller.friend = messages?[indexPath.item].friend
+        
+        navigationController?.pushViewController(controller, animated: true)
+    }
     //MARK: - Flow layout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
