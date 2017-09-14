@@ -50,13 +50,9 @@ extension FriendsViewController{
             
             createMessageWith(text: "Hello, my name is Mark nice to meet you.....", friend: mark, context: context)
             
-            let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
-            steve.name = "Steven Jobs"
-            steve.profileImageName = "stevejobs"
             
-            createMessageWith(text: "Good morning...", friend: steve, context: context)
-            createMessageWith(text: "How are you?", friend: steve, context: context)
-            createMessageWith(text: "Are you interested in buying an Apple divice? here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a", friend: steve, context: context)
+            createSteveMessagesWith(context: context)
+            
             
             let bill = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             bill.name = "Bill Gates"
@@ -76,11 +72,26 @@ extension FriendsViewController{
         loadData()
     }
     
-    private func createMessageWith(text: String, friend: Friend, context: NSManagedObjectContext){
+    private func createSteveMessagesWith(context:NSManagedObjectContext){
+        let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        steve.name = "Steven Jobs"
+        steve.profileImageName = "stevejobs"
+        
+        createMessageWith(text: "Good morning...", friend: steve, context: context)
+        createMessageWith(text: "How are you?", friend: steve, context: context)
+        createMessageWith(text: "Are you interested in buying an Apple divice? ", friend: steve, context: context)
+        
+        //response
+        
+        createMessageWith(text: "Yes, I'm planing to buy an Iphone X", friend: steve, context: context, isSender: true)
+    }
+    
+    private func createMessageWith(text: String, friend: Friend, context: NSManagedObjectContext, isSender: Bool = false){
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.friend = friend
         message.text = text
         message.date = NSDate()
+        message.isSender = isSender
     }
     
     func loadData(){

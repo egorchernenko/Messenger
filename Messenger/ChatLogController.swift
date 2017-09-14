@@ -42,7 +42,7 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         cell.messageTextView.text = messages?[indexPath.item].text
         
         
-        if let messageText = messages?[indexPath.item].text, let profileImageName = messages?[indexPath.item].friend?.profileImageName{
+        if let message = messages?[indexPath.item], let messageText = message.text, let profileImageName = message.friend?.profileImageName{
             
             cell.profileImageView.image = UIImage(named: profileImageName)
             
@@ -50,9 +50,32 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let estimatedFrame = NSString(string: messageText).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18)], context: nil)
 
-            cell.messageTextView.frame = CGRect(x: 40 + 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
-            
-            cell.textBubleView.frame = CGRect(x: 40, y: 0, width: estimatedFrame.width + 16 + 8, height: estimatedFrame.height + 20)
+            if !message.isSender{
+                cell.messageTextView.frame = CGRect(x: 48 + 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                
+                cell.textBubbleView.frame = CGRect(x: 48 - 10, y: -4, width: estimatedFrame.width + 16 + 8 + 16, height: estimatedFrame.height + 20 + 6)
+                
+                cell.profileImageView.isHidden = false
+                
+//                cell.textBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+                cell.bubbleImageView.image = ChatLogMessageCell.grayBubleImage
+                cell.bubbleImageView.tintColor = UIColor(white: 0.95, alpha: 1)
+                cell.messageTextView.textColor = .black
+
+            } else {
+                
+                cell.messageTextView.frame = CGRect(x: view.frame.width - estimatedFrame.width - 16 - 16 - 8, y: 0, width: estimatedFrame.width + 16, height: estimatedFrame.height + 20)
+                
+                cell.textBubbleView.frame = CGRect(x: view.frame.width - estimatedFrame.width - 16 - 8 - 16 - 10, y: -4, width: estimatedFrame.width + 16 + 8 + 10, height: estimatedFrame.height + 20 + 6)
+                
+                cell.profileImageView.isHidden = true
+                
+//                cell.textBubbleView.backgroundColor = UIColor(red: 0, green: 137/255, blue: 249/55, alpha: 1)
+                cell.bubbleImageView.image = ChatLogMessageCell.blueBableImage
+                cell.bubbleImageView.tintColor = UIColor(red: 0, green: 137/255, blue: 249/55, alpha: 1)
+                cell.messageTextView.textColor = .white
+            }
+
 
         }
         
@@ -88,9 +111,9 @@ class ChatLogMessageCell: BaseCell{
         return textView
     }()
     
-    let textBubleView: UIView = {
+    let textBubbleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        //view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
         return view
@@ -104,15 +127,28 @@ class ChatLogMessageCell: BaseCell{
         return imageView
     }()
     
+    static let grayBubleImage = UIImage(named: "bubble_gray")?.resizableImage(withCapInsets: UIEdgeInsets(top: 22, left: 26, bottom: 22, right: 26)).withRenderingMode(.alwaysTemplate)
+    static let blueBableImage = UIImage(named: "bubble_blue")?.resizableImage(withCapInsets: UIEdgeInsets(top: 22, left: 26, bottom: 22, right: 26)).withRenderingMode(.alwaysTemplate)
+    
+    let bubbleImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = ChatLogMessageCell.grayBubleImage
+        imageView.tintColor = UIColor(white: 0.90, alpha: 1)
+        return imageView
+    }()
+    
     override func setupView() {
         super.setupView()
         
         backgroundColor = .clear
         
-        addSubview(textBubleView)
+        addSubview(textBubbleView)
         addSubview(messageTextView)
         addSubview(profileImageView)
         
         profileImageView.anchor(nil, left: self.leftAnchor, bottom: self.bottomAnchor, right: nil, topConstant: 0, leftConstant: 4, bottomConstant: 0, rightConstant: 0, widthConstant: 30, heightConstant: 30)
+        
+        textBubbleView.addSubview(bubbleImageView)
+        bubbleImageView.anchor(textBubbleView.topAnchor, left: textBubbleView.leftAnchor, bottom: textBubbleView.bottomAnchor, right: textBubbleView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }

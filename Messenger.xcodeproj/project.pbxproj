@@ -22,6 +22,7 @@
 		74961E211F66F87700ED633B /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E1D1F66F87700ED633B /* Message+CoreDataProperties.swift */; };
 		74961E231F67199700ED633B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E221F67199700ED633B /* ChatLogController.swift */; };
 		74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E241F67B6E500ED633B /* CustomTabBarController.swift */; };
+		74E4BC6A1F6B121700510189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74E4BC691F6B121700510189 /* GoogleService-Info.plist */; };
 		D2CD3A2D5EFE452CE78A3DF9 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1587C0C4D2DED3732B72710F /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		74961E1D1F66F87700ED633B /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74961E221F67199700ED633B /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		74961E241F67B6E500ED633B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		74E4BC691F6B121700510189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				74961DDA1F6671E900ED633B /* AppDelegate.swift */,
 				74961DE41F6671E900ED633B /* Assets.xcassets */,
 				74961DE61F6671E900ED633B /* LaunchScreen.storyboard */,
+				74E4BC691F6B121700510189 /* GoogleService-Info.plist */,
 				74961DE91F6671E900ED633B /* Info.plist */,
 			);
 			name = "Support Files";
@@ -232,6 +235,7 @@
 			files = (
 				74961DE81F6671E900ED633B /* LaunchScreen.storyboard in Resources */,
 				74961DE51F6671E900ED633B /* Assets.xcassets in Resources */,
+				74E4BC6A1F6B121700510189 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
