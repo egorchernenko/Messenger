@@ -56,7 +56,7 @@ extension FriendsViewController{
             
             createMessageWith(text: "Good morning...", friend: steve, context: context)
             createMessageWith(text: "How are you?", friend: steve, context: context)
-            createMessageWith(text: "Are you interested in buying an Apple divice?", friend: steve, context: context)
+            createMessageWith(text: "Are you interested in buying an Apple divice? here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a", friend: steve, context: context)
             
             let bill = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
             bill.name = "Bill Gates"
