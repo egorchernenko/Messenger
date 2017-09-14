@@ -57,7 +57,15 @@ extension FriendsViewController{
             createMessageWith(text: "Good morning...", friend: steve, context: context)
             createMessageWith(text: "How are you?", friend: steve, context: context)
             createMessageWith(text: "Are you interested in buying an Apple divice?", friend: steve, context: context)
-                        
+            
+            let bill = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+            bill.name = "Bill Gates"
+            bill.profileImageName = "billgates"
+            
+            let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
+            message.friend = bill
+            message.text = "Hello"
+            message.date = NSDate(timeIntervalSinceNow: -60*60*24*7)
             do{
                 try context.save()
             } catch {
@@ -98,7 +106,7 @@ extension FriendsViewController{
                     }
                 }
             }
-            messages = messages?.sorted{$0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970}
+            messages = messages?.sorted{$0.date!.timeIntervalSince1970 > $1.date!.timeIntervalSince1970}
         }
     }
     

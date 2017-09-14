@@ -21,6 +21,7 @@
 		74961E201F66F87700ED633B /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E1C1F66F87700ED633B /* Message+CoreDataClass.swift */; };
 		74961E211F66F87700ED633B /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E1D1F66F87700ED633B /* Message+CoreDataProperties.swift */; };
 		74961E231F67199700ED633B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E221F67199700ED633B /* ChatLogController.swift */; };
+		74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E241F67B6E500ED633B /* CustomTabBarController.swift */; };
 		D2CD3A2D5EFE452CE78A3DF9 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1587C0C4D2DED3732B72710F /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		74961E1C1F66F87700ED633B /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74961E1D1F66F87700ED633B /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74961E221F67199700ED633B /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		74961E241F67B6E500ED633B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				74961DDC1F6671E900ED633B /* FriendsViewController.swift */,
 				74961E221F67199700ED633B /* ChatLogController.swift */,
+				74961E241F67B6E500ED633B /* CustomTabBarController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				74961DFE1F66E9C200ED633B /* FriendControllerHelper.swift in Sources */,
 				74961DFC1F66E41400ED633B /* Friend.swift in Sources */,
 				74961DE31F6671E900ED633B /* Messenger.xcdatamodeld in Sources */,
+				74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */,
 				74961DF71F66B09400ED633B /* MessageCell.swift in Sources */,
 				74961E201F66F87700ED633B /* Message+CoreDataClass.swift in Sources */,
 			);

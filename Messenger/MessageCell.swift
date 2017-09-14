@@ -11,6 +11,8 @@ import UIKit
 
 class MessageCell: BaseCell{
     
+    //MARK: - Create UI elements
+
     var message: Message? {
         didSet{
             nameLabel.text = message?.friend?.name
@@ -22,8 +24,19 @@ class MessageCell: BaseCell{
             }
             
             if let date = message?.date{
+                
                 let dateFromater = DateFormatter()
                 dateFromater.dateFormat = "h:mm a"
+                
+                let elapsedTimeInSeconds = NSDate().timeIntervalSince(date as Date)
+                
+                let secondsInDays: TimeInterval = 60 * 60 * 24
+                
+                if elapsedTimeInSeconds > 7 * secondsInDays {
+                    dateFromater.dateFormat = "MM/dd/yy"
+                } else if elapsedTimeInSeconds > secondsInDays{
+                    dateFromater.dateFormat = "EEE"
+                }
                 
                 timeLabel.text = dateFromater.string(from: date as Date)
             }
@@ -80,6 +93,8 @@ class MessageCell: BaseCell{
         return imageView
     }()
     
+    //MARK: - Setup view
+    
     override func setupView(){
         
         addSubview(profileImageView)
@@ -95,12 +110,12 @@ class MessageCell: BaseCell{
         dividerLineView.anchor(nil, left: profileImageView.rightAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 1)
     }
     
-    //MARK: - Add friend name and message label
+    //MARK: - Setup container
     
     private func setupContainerView(){
         let containerView = UIView()
         addSubview(containerView)
-        
+
         containerView.anchor(self.topAnchor, left: profileImageView.rightAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 8, leftConstant: 8, bottomConstant: 8, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         containerView.addSubview(nameLabel)
@@ -115,6 +130,14 @@ class MessageCell: BaseCell{
         timeLabel.anchor(containerView.topAnchor, left: nil, bottom: nil, right: containerView.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 100, heightConstant: 0)
         
         hasReadImageView.anchor(nameLabel.bottomAnchor, left: nil, bottom: nil, right: containerView.rightAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: 20, heightConstant: 20)
+    }
+    
+    //MARK: - Custom highlited
+    
+    override var isHighlighted: Bool {
+        didSet{
+            backgroundColor = isHighlighted ? .lightGray : .white
+        }
     }
     
 }
