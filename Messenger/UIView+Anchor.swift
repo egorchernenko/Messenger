@@ -50,17 +50,17 @@ extension UIView{
         return anchors
     }
     
-    public func anchorCenterXToSuperview(constant: CGFloat = 0) {
+    public func anchorCenterXToSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerXAnchor {
-            centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+            centerXAnchor.constraint(equalTo: anchor).isActive = true
         }
     }
     
-    public func anchorCenterYToSuperview(constant: CGFloat = 0) {
+    public func anchorCenterYToSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerYAnchor {
-            centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+            centerYAnchor.constraint(equalTo: anchor).isActive = true
         }
     }
     

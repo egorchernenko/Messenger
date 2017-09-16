@@ -23,6 +23,8 @@
 		74961E231F67199700ED633B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E221F67199700ED633B /* ChatLogController.swift */; };
 		74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E241F67B6E500ED633B /* CustomTabBarController.swift */; };
 		74E4BC6A1F6B121700510189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74E4BC691F6B121700510189 /* GoogleService-Info.plist */; };
+		74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */; };
+		74E4BC6E1F6D6F0500510189 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4BC6D1F6D6F0500510189 /* ViewController.swift */; };
 		D2CD3A2D5EFE452CE78A3DF9 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1587C0C4D2DED3732B72710F /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		74961E221F67199700ED633B /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		74961E241F67B6E500ED633B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		74E4BC691F6B121700510189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		74E4BC6D1F6D6F0500510189 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,8 @@
 				74961DDC1F6671E900ED633B /* FriendsViewController.swift */,
 				74961E221F67199700ED633B /* ChatLogController.swift */,
 				74961E241F67B6E500ED633B /* CustomTabBarController.swift */,
+				74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */,
+				74E4BC6D1F6D6F0500510189 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -294,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E4BC6E1F6D6F0500510189 /* ViewController.swift in Sources */,
+				74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */,
 				74961E231F67199700ED633B /* ChatLogController.swift in Sources */,
 				74961E211F66F87700ED633B /* Message+CoreDataProperties.swift in Sources */,
 				74961DDD1F6671E900ED633B /* FriendsViewController.swift in Sources */,
