@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FriendsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -14,8 +15,10 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
     
     private let cellId = "cellId"
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = "Recent"
         
         collectionView?.backgroundColor = .white
@@ -24,6 +27,13 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
         collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: cellId)
         
         setupData()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+    }
+    
+    func handleLogout(){
+        let loginController = LoginViewController()
+        present(loginController, animated: true, completion: nil)
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

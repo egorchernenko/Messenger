@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -19,14 +20,50 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    let loginRegisterButton: UIButton = {
+    lazy var loginRegisterButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(r: 255, g: 204, b: 0, alpha: 1)
         button.setTitle("Register", for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
+        
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        
         return button
     }()
+    
+    
+    //MARK: Register new user
+    func handleRegister(){
+        guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {return}
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            
+            if let err = error{
+                print(err.localizedDescription)
+                return
+            }
+            
+            guard let uid = user?.uid else {return}
+            
+            //succesfully autheticated
+            let ref = Database.database().reference(fromURL: "https://messenger-63741.firebaseio.com/")
+            let userReference = ref.child("users").child(uid)
+            
+            let values = ["name": name, "email": email]
+            
+            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                
+                if let err = error{
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                
+            })
+            
+        }
+    }
 
     let nameTextField: UITextField = {
         let tf = UITextField()

@@ -20,11 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
 
+        
+        let stratController = FriendsViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        //window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = UINavigationController(rootViewController: stratController)
         return true
     }
 

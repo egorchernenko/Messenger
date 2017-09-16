@@ -14,7 +14,6 @@
 		74961DE81F6671E900ED633B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74961DE61F6671E900ED633B /* LaunchScreen.storyboard */; };
 		74961DF41F669EEB00ED633B /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DF31F669EEB00ED633B /* UIView+Anchor.swift */; };
 		74961DF71F66B09400ED633B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DF61F66B09400ED633B /* MessageCell.swift */; };
-		74961DFC1F66E41400ED633B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DFB1F66E41400ED633B /* Friend.swift */; };
 		74961DFE1F66E9C200ED633B /* FriendControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DFD1F66E9C200ED633B /* FriendControllerHelper.swift */; };
 		74961E1E1F66F87700ED633B /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E1A1F66F87700ED633B /* Friend+CoreDataClass.swift */; };
 		74961E1F1F66F87700ED633B /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E1B1F66F87700ED633B /* Friend+CoreDataProperties.swift */; };
@@ -24,7 +23,6 @@
 		74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E241F67B6E500ED633B /* CustomTabBarController.swift */; };
 		74E4BC6A1F6B121700510189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74E4BC691F6B121700510189 /* GoogleService-Info.plist */; };
 		74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */; };
-		74E4BC6E1F6D6F0500510189 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4BC6D1F6D6F0500510189 /* ViewController.swift */; };
 		D2CD3A2D5EFE452CE78A3DF9 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1587C0C4D2DED3732B72710F /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +39,6 @@
 		74961DE91F6671E900ED633B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74961DF31F669EEB00ED633B /* UIView+Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		74961DF61F66B09400ED633B /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		74961DFB1F66E41400ED633B /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		74961DFD1F66E9C200ED633B /* FriendControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendControllerHelper.swift; sourceTree = "<group>"; };
 		74961E1A1F66F87700ED633B /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74961E1B1F66F87700ED633B /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -51,7 +48,6 @@
 		74961E241F67B6E500ED633B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		74E4BC691F6B121700510189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		74E4BC6D1F6D6F0500510189 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +146,6 @@
 				74961E221F67199700ED633B /* ChatLogController.swift */,
 				74961E241F67B6E500ED633B /* CustomTabBarController.swift */,
 				74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */,
-				74E4BC6D1F6D6F0500510189 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -158,7 +153,6 @@
 		74961DFA1F66E3FB00ED633B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				74961DFB1F66E41400ED633B /* Friend.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,7 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74E4BC6E1F6D6F0500510189 /* ViewController.swift in Sources */,
 				74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */,
 				74961E231F67199700ED633B /* ChatLogController.swift in Sources */,
 				74961E211F66F87700ED633B /* Message+CoreDataProperties.swift in Sources */,
@@ -310,7 +303,6 @@
 				74961DF41F669EEB00ED633B /* UIView+Anchor.swift in Sources */,
 				74961DDB1F6671E900ED633B /* AppDelegate.swift in Sources */,
 				74961DFE1F66E9C200ED633B /* FriendControllerHelper.swift in Sources */,
-				74961DFC1F66E41400ED633B /* Friend.swift in Sources */,
 				74961DE31F6671E900ED633B /* Messenger.xcdatamodeld in Sources */,
 				74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */,
 				74961DF71F66B09400ED633B /* MessageCell.swift in Sources */,
@@ -435,7 +427,7 @@
 				DEVELOPMENT_TEAM = BB6356MAF8;
 				INFOPLIST_FILE = Messenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Egor.Messenger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Egor.Messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -449,7 +441,7 @@
 				DEVELOPMENT_TEAM = BB6356MAF8;
 				INFOPLIST_FILE = Messenger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Egor.Messenger;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Egor.Messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
