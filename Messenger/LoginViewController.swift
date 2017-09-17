@@ -53,39 +53,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //MARK: Register new user
-    func handleRegister(){
-        guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else {return}
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            
-            if let err = error{
-                print(err.localizedDescription)
-                return
-            }
-            
-            guard let uid = user?.uid else {return}
-            
-            //succesfully autheticated
-            let ref = Database.database().reference(fromURL: "https://messenger-63741.firebaseio.com/")
-            let userReference = ref.child("users").child(uid)
-            
-            let values = ["name": name, "email": email]
-            
-            userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                
-                if let err = error{
-                    print(err.localizedDescription)
-                    return
-                }
-                
-                self.dismiss(animated: true, completion: nil)
-                print("Register succesfully")
-                
-            })
-            
-        }
-    }
 
     let nameTextField: UITextField = {
         let tf = UITextField()
@@ -124,10 +91,14 @@ class LoginViewController: UIViewController {
         return tf
     }()
     
-    let profielImageView : UIImageView = {
+    lazy var profielImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "firebase")
         imageView.contentMode = .scaleAspectFill
+        
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        imageView.isUserInteractionEnabled = true
+        
         return imageView
     }()
     

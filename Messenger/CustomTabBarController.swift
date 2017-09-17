@@ -14,7 +14,7 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let layout = UICollectionViewFlowLayout()
-        let freindsViewController = FriendsViewController(collectionViewLayout: layout)
+        let freindsViewController = ChatsViewController(collectionViewLayout: layout)
         let recentNavigationController = UINavigationController(rootViewController: freindsViewController)
         recentNavigationController.tabBarItem.title = "Chats"
         recentNavigationController.tabBarItem.image = UIImage(named: "chats")

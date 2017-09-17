@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChatsViewController.swift
 //  Messenger
 //
 //  Created by Egor on 11.09.17.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FriendsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ChatsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var messages: [Message]?
     
@@ -19,7 +19,7 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Recent"
+        navigationItem.title = "Chats"
         
         collectionView?.backgroundColor = .white
         collectionView?.alwaysBounceVertical = true
@@ -30,9 +30,30 @@ class FriendsViewController: UICollectionViewController, UICollectionViewDelegat
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         
+        let newMessaeImage = UIImage(named: "new-message")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessaeImage, style: .plain, target: self, action: #selector(handleNewMessage))
+        
+        checkIfUserIsLoggedIn()
+    }
+    
+    func handleNewMessage(){
+        let newMessageController = NewMessageController()
+        let navConroller = UINavigationController(rootViewController: newMessageController)
+        present(navConroller, animated: true, completion: nil)
+    }
+    
+    func checkIfUserIsLoggedIn(){
         if Auth.auth().currentUser?.uid == nil{
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
-            handleLogout()
+        } else {
+            let uid = Auth.auth().currentUser?.uid
+            Database.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
+                
+                if let dicionary = snapshot.value as? [String: AnyObject]{
+                    self.navigationItem.title = dicionary["name"] as? String
+                }
+                
+            }, withCancel: nil)
         }
     }
     

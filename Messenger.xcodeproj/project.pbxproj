@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74961DDB1F6671E900ED633B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DDA1F6671E900ED633B /* AppDelegate.swift */; };
-		74961DDD1F6671E900ED633B /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DDC1F6671E900ED633B /* FriendsViewController.swift */; };
+		74961DDD1F6671E900ED633B /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961DDC1F6671E900ED633B /* ChatsViewController.swift */; };
 		74961DE31F6671E900ED633B /* Messenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74961DE11F6671E900ED633B /* Messenger.xcdatamodeld */; };
 		74961DE51F6671E900ED633B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74961DE41F6671E900ED633B /* Assets.xcassets */; };
 		74961DE81F6671E900ED633B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74961DE61F6671E900ED633B /* LaunchScreen.storyboard */; };
@@ -21,6 +21,10 @@
 		74961E211F66F87700ED633B /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E1D1F66F87700ED633B /* Message+CoreDataProperties.swift */; };
 		74961E231F67199700ED633B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E221F67199700ED633B /* ChatLogController.swift */; };
 		74961E251F67B6E500ED633B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74961E241F67B6E500ED633B /* CustomTabBarController.swift */; };
+		74BA55051F6E747A000E16D2 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA55041F6E747A000E16D2 /* NewMessageController.swift */; };
+		74BA55071F6E7874000E16D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA55061F6E7874000E16D2 /* User.swift */; };
+		74BA55091F6E7B1E000E16D2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA55081F6E7B1E000E16D2 /* UserCell.swift */; };
+		74BA550B1F6E80EB000E16D2 /* LoginController+Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA550A1F6E80EB000E16D2 /* LoginController+Handler.swift */; };
 		74E4BC6A1F6B121700510189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74E4BC691F6B121700510189 /* GoogleService-Info.plist */; };
 		74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */; };
 		D2CD3A2D5EFE452CE78A3DF9 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1587C0C4D2DED3732B72710F /* Pods_Messenger.framework */; };
@@ -32,7 +36,7 @@
 		266E5BDB138CF9A09E362060 /* Pods-Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Messenger/Pods-Messenger.debug.xcconfig"; sourceTree = "<group>"; };
 		74961DD71F6671E900ED633B /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74961DDA1F6671E900ED633B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74961DDC1F6671E900ED633B /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		74961DDC1F6671E900ED633B /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		74961DE21F6671E900ED633B /* Messenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Messenger.xcdatamodel; sourceTree = "<group>"; };
 		74961DE41F6671E900ED633B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74961DE71F6671E900ED633B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +50,10 @@
 		74961E1D1F66F87700ED633B /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74961E221F67199700ED633B /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		74961E241F67B6E500ED633B /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		74BA55041F6E747A000E16D2 /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
+		74BA55061F6E7874000E16D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		74BA55081F6E7B1E000E16D2 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		74BA550A1F6E80EB000E16D2 /* LoginController+Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+Handler.swift"; sourceTree = "<group>"; };
 		74E4BC691F6B121700510189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				74961DF61F66B09400ED633B /* MessageCell.swift */,
+				74BA55081F6E7B1E000E16D2 /* UserCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -142,10 +151,12 @@
 		74961DF91F66B0FF00ED633B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				74961DDC1F6671E900ED633B /* FriendsViewController.swift */,
+				74961DDC1F6671E900ED633B /* ChatsViewController.swift */,
+				74BA55041F6E747A000E16D2 /* NewMessageController.swift */,
 				74961E221F67199700ED633B /* ChatLogController.swift */,
 				74961E241F67B6E500ED633B /* CustomTabBarController.swift */,
 				74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */,
+				74BA550A1F6E80EB000E16D2 /* LoginController+Handler.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -153,6 +164,7 @@
 		74961DFA1F66E3FB00ED633B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74BA55061F6E7874000E16D2 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -297,10 +309,14 @@
 				74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */,
 				74961E231F67199700ED633B /* ChatLogController.swift in Sources */,
 				74961E211F66F87700ED633B /* Message+CoreDataProperties.swift in Sources */,
-				74961DDD1F6671E900ED633B /* FriendsViewController.swift in Sources */,
+				74961DDD1F6671E900ED633B /* ChatsViewController.swift in Sources */,
+				74BA55051F6E747A000E16D2 /* NewMessageController.swift in Sources */,
 				74961E1E1F66F87700ED633B /* Friend+CoreDataClass.swift in Sources */,
 				74961E1F1F66F87700ED633B /* Friend+CoreDataProperties.swift in Sources */,
 				74961DF41F669EEB00ED633B /* UIView+Anchor.swift in Sources */,
+				74BA550B1F6E80EB000E16D2 /* LoginController+Handler.swift in Sources */,
+				74BA55091F6E7B1E000E16D2 /* UserCell.swift in Sources */,
+				74BA55071F6E7874000E16D2 /* User.swift in Sources */,
 				74961DDB1F6671E900ED633B /* AppDelegate.swift in Sources */,
 				74961DFE1F66E9C200ED633B /* FriendControllerHelper.swift in Sources */,
 				74961DE31F6671E900ED633B /* Messenger.xcdatamodeld in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-extension FriendsViewController{
+extension ChatsViewController{
     
     func clearData(){
         let container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer

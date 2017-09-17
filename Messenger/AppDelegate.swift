@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         
-        let stratController = FriendsViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let stratController = ChatsViewController(collectionViewLayout: UICollectionViewFlowLayout())
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
