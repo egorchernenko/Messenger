@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
-class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
+class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
     
     private let cellId = "cellId"
+    
+    lazy var inputTextField : UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Message"
+        textField.delegate = self
+        return textField
+    }()
     
     var friend: Friend? {
         didSet{
@@ -30,6 +38,49 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.backgroundColor = .white
         
         collectionView?.register(ChatLogMessageCell.self, forCellWithReuseIdentifier: cellId)
+        
+        setupInputComponents()
+    }
+
+    func setupInputComponents(){
+        let containerView = UIView()
+        
+        view.addSubview(containerView)
+        
+        containerView.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 50)
+    
+        let sendButton = UIButton(type: .system)
+        sendButton.setImage(UIImage(named: "sendMessage"), for: .normal)
+        sendButton.tintColor = .black
+        sendButton.addTarget(self, action: #selector(handleSend), for: .touchUpInside)
+        containerView.addSubview(sendButton)
+        
+        sendButton.anchor(containerView.topAnchor, left: nil, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 12, widthConstant: 30, heightConstant: 0)
+        
+
+        containerView.addSubview(inputTextField)
+        
+        inputTextField.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: sendButton.leftAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
+        let seperatorLineView = UIView()
+        seperatorLineView.backgroundColor = UIColor(white: 0.90, alpha: 1)
+        containerView.addSubview(seperatorLineView)
+        
+        seperatorLineView.anchor(containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 1)
+    }
+    
+    func handleSend(){
+        
+        let ref = Database.database().reference().child("messages")
+        let childRef = ref.childByAutoId()
+        let values = ["text": inputTextField.text!, "name": "test"]
+        childRef.updateChildValues(values)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        handleSend()
+        return true
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -113,7 +164,6 @@ class ChatLogMessageCell: BaseCell{
     
     let textBubbleView: UIView = {
         let view = UIView()
-        //view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
         return view
