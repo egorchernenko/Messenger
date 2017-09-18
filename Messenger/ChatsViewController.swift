@@ -46,7 +46,7 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         if Auth.auth().currentUser?.uid == nil{
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
-           fetchUserAndSetupNavBar()
+           //fetchUserAndSetupNavBar()
         }
     }
     
@@ -71,7 +71,7 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         }
         
         let loginController = LoginViewController()
-        loginController.chatsController = self
+        //loginController.chatsController = self
         present(loginController, animated: true, completion: nil)
     }
 

@@ -11,7 +11,7 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    var chatsController: ChatsViewController?
+    //var chatsController: ChatsViewController?
 
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
+            //self.chatsController?.fetchUserAndSetupNavBar()
             self.dismiss(animated: true, completion: nil)
         }
     }

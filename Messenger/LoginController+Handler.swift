@@ -61,7 +61,7 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
             let imageName = NSUUID().uuidString
             let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
             
-            if let uploadData = UIImagePNGRepresentation(self.profielImageView.image!){
+            if let profileImage = self.profielImageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1){
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (metaData, error) in
                     
@@ -96,7 +96,8 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
                 return
             }
             
-            self.chatsController?.fetchUserAndSetupNavBar()
+            //self.chatsController?.fetchUserAndSetupNavBar() to avoid excess call firebase
+            //self.chatsController?.navigationItem.title = values["name"] as? String
             
             self.dismiss(animated: true, completion: nil)
             print("Register succesfully")
