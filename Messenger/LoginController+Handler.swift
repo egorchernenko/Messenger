@@ -11,6 +11,7 @@ import Firebase
 
 extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
     func handleSelectProfileImageView(){
         let picker = UIImagePickerController()
         
@@ -74,6 +75,7 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
                         let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl]
                         
                         self.registerUserIntoDataBase(with: uid, values: values)
+    
    
                     }
                 })
@@ -93,6 +95,8 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
                 print(err.localizedDescription)
                 return
             }
+            
+            self.chatsController?.fetchUserAndSetupNavBar()
             
             self.dismiss(animated: true, completion: nil)
             print("Register succesfully")

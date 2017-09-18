@@ -46,15 +46,20 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         if Auth.auth().currentUser?.uid == nil{
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
-            let uid = Auth.auth().currentUser?.uid
-            Database.database().reference().child("users").child(uid!).observe(.value, with: { (snapshot) in
-                
-                if let dicionary = snapshot.value as? [String: AnyObject]{
-                    self.navigationItem.title = dicionary["name"] as? String
-                }
-                
-            }, withCancel: nil)
+           fetchUserAndSetupNavBar()
         }
+    }
+    
+    func fetchUserAndSetupNavBar(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        Database.database().reference().child("users").child(uid).observe(.value, with: { (snapshot) in
+            
+            if let dicionary = snapshot.value as? [String: AnyObject]{
+                self.navigationItem.title = dicionary["name"] as? String
+            }
+            
+        }, withCancel: nil)
     }
     
     func handleLogout(){
@@ -66,6 +71,7 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         }
         
         let loginController = LoginViewController()
+        loginController.chatsController = self
         present(loginController, animated: true, completion: nil)
     }
 

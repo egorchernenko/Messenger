@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
+    
+    var chatsController: ChatsViewController?
 
     let inputsContainerView: UIView = {
         let view = UIView()
