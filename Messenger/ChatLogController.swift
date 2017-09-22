@@ -13,6 +13,12 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     private let cellId = "cellId"
     
+    var user: User? {
+        didSet{
+            navigationItem.title = user?.name
+        }
+    }
+    
     lazy var inputTextField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "Message"
@@ -73,7 +79,13 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         
         let ref = Database.database().reference().child("messages")
         let childRef = ref.childByAutoId()
-        let values = ["text": inputTextField.text!, "name": "test"]
+        
+        let toId = user!.id!
+        let fromId = Auth.auth().currentUser!.uid
+        let timestamp = Int(Date().timeIntervalSince1970)
+        
+        
+        let values = ["text": inputTextField.text!, "toID": toId, "fromID": fromId, "timestamp": timestamp] as [String : Any]
         childRef.updateChildValues(values)
         
     }

@@ -26,6 +26,7 @@
 		74BA55091F6E7B1E000E16D2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA55081F6E7B1E000E16D2 /* UserCell.swift */; };
 		74BA550B1F6E80EB000E16D2 /* LoginController+Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA550A1F6E80EB000E16D2 /* LoginController+Handler.swift */; };
 		74BA550D1F702C3B000E16D2 /* UIImageView+cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA550C1F702C3A000E16D2 /* UIImageView+cache.swift */; };
+		74BA550F1F739952000E16D2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BA550E1F739952000E16D2 /* Message.swift */; };
 		74E4BC6A1F6B121700510189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74E4BC691F6B121700510189 /* GoogleService-Info.plist */; };
 		74E4BC6C1F6BD7B100510189 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */; };
 		D2CD3A2D5EFE452CE78A3DF9 /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1587C0C4D2DED3732B72710F /* Pods_Messenger.framework */; };
@@ -56,6 +57,7 @@
 		74BA55081F6E7B1E000E16D2 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		74BA550A1F6E80EB000E16D2 /* LoginController+Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+Handler.swift"; sourceTree = "<group>"; };
 		74BA550C1F702C3A000E16D2 /* UIImageView+cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+cache.swift"; sourceTree = "<group>"; };
+		74BA550E1F739952000E16D2 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		74E4BC691F6B121700510189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74E4BC6B1F6BD7B100510189 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				74BA55061F6E7874000E16D2 /* User.swift */,
+				74BA550E1F739952000E16D2 /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				74BA55051F6E747A000E16D2 /* NewMessageController.swift in Sources */,
 				74961E1E1F66F87700ED633B /* Friend+CoreDataClass.swift in Sources */,
 				74961E1F1F66F87700ED633B /* Friend+CoreDataProperties.swift in Sources */,
+				74BA550F1F739952000E16D2 /* Message.swift in Sources */,
 				74961DF41F669EEB00ED633B /* UIView+Anchor.swift in Sources */,
 				74BA550B1F6E80EB000E16D2 /* LoginController+Handler.swift in Sources */,
 				74BA55091F6E7B1E000E16D2 /* UserCell.swift in Sources */,

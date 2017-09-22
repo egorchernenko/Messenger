@@ -31,7 +31,7 @@ class NewMessageController: UITableViewController {
             if let dictionary = snapshot.value as? [String:AnyObject]{
                 
                 let user = User()
-
+                user.id = snapshot.key
                 //if properties don't exactly match up with the firebase dicionary keys, app will be crash
                 user.setValuesForKeys(dictionary)
                 self.users.append(user)
@@ -68,7 +68,20 @@ class NewMessageController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72
+    var chatsController: ChatsViewController?
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) {
+            
+            let user = self.users[indexPath.row]
+            
+            self.chatsController?.showChatControllerFor(user: user)
+        }
     }
+        
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 72
+    }
+    
 }

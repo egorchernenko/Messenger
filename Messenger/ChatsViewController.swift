@@ -13,6 +13,8 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
 
     var messages: [Message]?
     
+    var chats: [Chat] = [Chat]()
+    
     private let cellId = "cellId"
     
     
@@ -34,10 +36,33 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessaeImage, style: .plain, target: self, action: #selector(handleNewMessage))
         
         checkIfUserIsLoggedIn()
+        
+        observeMessages()
+    }
+    
+    func observeMessages(){
+        let ref = Database.database().reference().child("messages")
+        ref.observe(.childAdded, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String:Any]{
+                
+                print(dictionary)
+                let chat = Chat()
+                chat.setValuesForKeys(dictionary)
+                
+                self.chats.append(chat)
+                print(self.chats.count)
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+                
+            }
+
+        }, withCancel: nil)
     }
     
     func handleNewMessage(){
         let newMessageController = NewMessageController()
+        newMessageController.chatsController = self
         let navConroller = UINavigationController(rootViewController: newMessageController)
         present(navConroller, animated: true, completion: nil)
     }
@@ -76,15 +101,18 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages?.count ?? 0
+        return chats.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MessageCell
         
-        if let message = messages?[indexPath.item]{
-            cell.message = message
-        }
+        let chat = chats[indexPath.item]
+        
+        cell.messageLabel.text = chat.text
+        //if let message = messages?[indexPath.item]{
+          //  cell.message = message
+        //}
         
         return cell
     }
@@ -104,5 +132,12 @@ class ChatsViewController: UICollectionViewController, UICollectionViewDelegateF
     //MARK: - Flow layout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
+    }
+    
+    
+    func showChatControllerFor(user: User){
+        let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
+        chatLogController.user = user
+        navigationController?.pushViewController(chatLogController, animated: true)
     }
 }
